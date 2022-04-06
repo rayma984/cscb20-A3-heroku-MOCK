@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+    {% block content %}
+    {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div>{{ category }} - {{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        <p id="register_prompt">Please enter your login information below!</p>
+
+        <form action="http://127.0.0.1:5000/login" method = "post">
+            <label for="username">Username</label>
+            <input type="text" id="Username" name="Username">
+
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password">
+
+            <button type="Login">Login</button>
+        </form>
+{% endblock %}

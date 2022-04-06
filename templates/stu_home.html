@@ -1,0 +1,9 @@
+{% extends "new_template.html" %}
+{% block content %}
+    
+    <p id="intro">Welcome to the student home page!</p>
+    <!--add somethings to greet the student-->
+
+    <p>Click <a href="{{ url_for('view_marks') }}">here</a> to view all your marks</p>
+    <p>This link will only appear on this home page because it is special!</p>
+{% endblock %}

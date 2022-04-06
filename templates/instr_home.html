@@ -1,0 +1,11 @@
+{% extends "new_template.html" %}
+{% block content %}
+    
+    <p id="intro">Welcome to the instructor home page!</p>
+
+
+    <p>Click <a href="{{ url_for('instr_marks') }}">here</a> to view the marks of ALL students</p>
+    <p>This link will only appear on this home page because it is special!</p>
+
+
+{% endblock %}

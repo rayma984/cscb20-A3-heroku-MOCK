@@ -1,0 +1,34 @@
+{% extends "new_template.html" %}
+{% block content %}
+    <link rel="stylesheet" href = "{{url_for('static', filename='css/submit_feedback.css')}}">
+    <br>
+
+    <p id="intro">Welcome to the submit feedback page <br>Here, you can submit feedback anonymously to an instructor.</p>
+  
+    <br>
+
+    <form action="http://127.0.0.1:5000/submit_feedback" id="anon_feedback" method = "post" >
+        <label for="Q1">What do you like about the instructor teaching?</label>
+        <textarea name="Q1" form="anon_feedback" rows="5" cols="40"></textarea>
+
+        <label for="Q2">What do you recommend the instructor to do to improve their teaching?</label>
+        <textarea name="Q2" form="anon_feedback" rows="5" cols="40"></textarea>
+
+        <label for="Q3">What do you like about the labs?</label>
+        <textarea name="Q3" form="anon_feedback" rows="5" cols="40"></textarea>
+        
+        <label for="Q4">What do you recommend the lab instructors to do to improve their lab teaching?</label>
+        <textarea name="Q4" form="anon_feedback" rows="5" cols="40"></textarea>
+
+        <!--drop down with all the profs-->
+        <select name="instructor" id="instructor">
+            {% for prof in profs %}
+                <option value= {{ prof.Instructor_id }}>{{ prof.username }}</option>
+            {% endfor %}
+        </select>
+
+        <!--add some responsiveness once the thing has been submitted-->
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}

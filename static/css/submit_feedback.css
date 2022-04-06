@@ -1,0 +1,58 @@
+title{
+	color: darkmagenta;
+}
+
+
+#intro{
+	
+	/*background-image: url("../pics/hi.jpg");*/
+	margin:auto;
+	border-style: solid;
+	color: deeppink;
+	background: blanchedalmond;
+	font-size: 24px;
+	padding: 8px;
+	height:max-height;
+	text-align: center;
+	font-family:Calibri;
+	font-size:  200%;
+	border-style: solid;
+	border-color: black;
+	
+}
+form{
+margin: 0 auto;
+  /* Form outline */
+  width: fit-content;
+  padding: 1em;
+  border: 1px solid #CCC;
+  /*border-radius: 1em;*/  
+  background-color: gold;
+}
+
+label {
+  /* Uniform size & alignment */
+  display: inline-block;
+  width: fit-content;
+  font-size: 120%;
+  font-family:Courier New;
+  text-align: center;
+  background-color: lightsalmon;
+  border-radius: 1px solid #CCC;
+  border: solid blanchedalmond;
+  font-weight: bold;
+}
+
+
+button{
+	font-size: 150%;
+	font-family: Courier New;
+	font-weight: bold;
+	background-color: saddlebrown;
+	color: lightgoldenrodyellow;
+}
+
+body{
+background-image: url("../pics/hi1.png");
+
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+       <link rel="stylesheet" href="../static/css/course_team.css">  
+        <title>CSCB20 COURSE TEAM</title> <!---name tentative-->
+    </head>
+
+    <body>
+        <div id= "sticky_top">
+        <div class="header">
+            <div id="header_text">
+            <h2>CSCB20 COURSE TEAM</h2>       
+            </div>
+        </div>
+
+            <!--Intuition: a navigation bar is an unordered list of links, figure out horizontal stuff in CSS-->
+            <div class="navigation_bar">          
+                <strong>
+                    {% if session.name %}
+                        {% if session.type == 'Student' %} <!--for when user is logged in as student-->
+                        <!--these are the student pages-->
+                        <a href="{{ url_for('stu_home') }}">Home Page</a> 
+                        <a href="{{ url_for('submit_feedback') }}">Submit Feedback</a>
+
+                        {% else %}  <!--for when user is logged in as instructor: session.type == 'Instructor'-->
+                        <a href="{{ url_for('instr_home') }}">Home Page</a> 
+                        <a href="{{ url_for('view_feedback') }}">View Feedback</a>
+                        <a href="{{ url_for('view_remark') }}">View Remark Requests</a>
+                        <a href="{{ url_for('enter_marks') }}">Enter Marks</a>             
+                        {% endif %}
+
+                        <!--these are the A2 pages (common to both users)-->
+                        <a href="{{ url_for('index') }}">Course Home</a>
+                        <a href="{{ url_for('course_team') }}">Course Team</a>
+                        <a href="{{ url_for('lectures') }}">Lectures</a>
+                        <a href="../static/docs/syllabus.pdf">Syllabus</a>
+                        <a href="{{ url_for('weekly_schedule') }}">Weekly Schedule</a>
+                        <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments">Markus</a>
+                        <a href="https://piazza.com/class/kxj5alixpjg4ft">Piazza</a>
+                        <a href="{{ url_for('assignments') }}">Assignments</a>
+                        <a href="{{ url_for('labs') }}">Labs</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <!--logout page-->
+                        <a href="{{ url_for('login') }}">Login</a>
+                        <a href="{{ url_for('register') }}">Register</a>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    {% endif %}
+                </strong>
+            </div>
+    
+        </div>
+        
+        <hr class = "divider">
+
+        <div id="welcome">
+            <div id="welcome_text">
+                <h2>
+                    Meet the course team! 
+                </h2>
+            </div>
+        </div>
+
+        <hr class = "divider">
+        
+        <div id="team">
+            <div class="profile">
+                <p class="position">Professor</p>
+                <img class="pic" src="../static/pics/ANNA.png" alt="Anna can't be found right now">
+                <p class="name">Anna Bretscher</p>
+                <p class="email">bretscher@utsc.utoronto.ca</p>
+                <p class="year">B.Sc.(Queen's), M.Sc.(Queen's), Ph.D.(Toronto)</p>
+            </div>
+
+            <div class="profile">
+                <p class="position">TA</p>
+                <img class="pic" src="../static/pics/TA.png" alt="TA can't be found right now">
+                <p class="name">Adam Barns</p>
+                <p class="email">adam.barns@mail.utoronto.ca</p>
+                <p class="year">4th year CS Major</p>
+            </div>
+
+            <div class="profile">
+                <p class="position">TA</p>
+                <img class="pic" src="../static/pics/TA.png" alt="TA can't be found right now">
+                <p class="name">Chin Do</p>
+                <p class="email">chin.do@mail.utoronto.ca</p>
+                <p class="year">3th year CS Major</p>
+            </div>
+
+            <div class="profile">
+                <p class="position">TA</p>
+                <img class="pic" src="../static/pics/TA.png" alt="TA can't be found right now">
+                <p class="name">Eliotte Feng</p>
+                <p class="email">eliotte.feng@mail.utoronto.ca</p>
+                <p class="year">3rd year CS Minor</p>
+            </div>
+
+            <div class="profile">
+                <p class="position">TA</p>
+                <img class="pic" src="../static/pics/TA.png" alt="TA can't be found right now">
+                <p class="name">Grett Han</p>
+                <p class="email">grett.han@mail.utoronto.ca</p>
+                <p class="year">3rd year CS Specialist</p>
+            </div>
+        </div>
+        <hr class="divider">
+        <div id="blurb">
+            <p>Office hours can be found under the 'Weekly Schedule' link! Feel free to come by and ask questions to our lovely team.</p>
+            <p>Anna's info found from: <a href="https://www.utsc.utoronto.ca/cms/anna-bretscher" alt="dead link">utsc site</a> </p>
+        </div>
+
+        <div class="footer">      
+            <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">Faculty of Computer Science at UofT</a></div>
+            <div><img src="../static/pics/UofT.png" class="footer_pic" alt="UofT is no more"></div>
+            <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">image source</a></div>
+            <div><p class="signature">Site designed by Raymond Moy</p></div>
+        </div>
+    </body>
+</html>

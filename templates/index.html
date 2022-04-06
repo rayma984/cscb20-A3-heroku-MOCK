@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/index.css')}}">
+    <title>CSCB20 HOMEPAGE</title> 
+</head>
+
+<body>
+    
+    <div id="sticky_top">
+        <div class="header">
+            <h2 >CSCB20 HOMEPAGE</h2>       
+        </div>
+
+        <!--Intuition: a navigation bar is an unordered list of links, figure out horizontal stuff in CSS-->
+        <div class="navigation_bar">          
+            <strong>
+                {% if session.name %} <!--for when user is logged in-->
+                    <!--will have to put another <IF> for user TYPE-->
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{ url_for('register') }}">Register</a>
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('course_team') }}">Course Team</a>
+                    <a href="{{ url_for('lectures') }}">Lectures</a>
+                    <a href="../static/docs/syllabus.pdf">Syllabus</a>
+                    <a href="{{ url_for('weekly_schedule') }}">Weekly Schedule</a>
+                    <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments">Markus</a>
+                    <a href="https://piazza.com/class/kxj5alixpjg4ft">Piazza</a>
+                    <a href="{{ url_for('assignments') }}">Assignments</a>
+                    <a href="{{ url_for('labs') }}">Labs</a>
+                {% else %}
+                    <a href="{{ url_for('index') }}">Home</a> 
+                    <a href="{{ url_for('register') }}">Register</a>                                     
+                    <a href="{{ url_for('login') }}">Login</a>                    
+                {% endif %}
+            </strong>
+        </div>
+
+    </div>
+
+    <hr class = "divider">
+
+    <!--THE ABOVE SHOULD BE INCLUDED IN ALL HTML FILES-->
+
+
+    <div id="welcome">
+        <div id="welcome_text">
+            <h2>
+                Welcome!
+            </h2>
+        </div>    
+    </div>
+    
+
+
+    <!--a horizontal divider line-->
+    <hr class="divider">
+
+    <div class="text_blurb">
+        <h2 class ="headings"><u>Course Description:</u></h2>
+
+        <!--this is the course description-->
+        <p>A practical introduction to databases and Web app development. Databases: terminology and applications; creating, querying and updating databases; the entity-relationship model for database design. Web documents and applications: static and interactive documents; Web servers and dynamic server-generated content; Web application development and interface with databases.
+        </p>
+    </div>
+
+    <div id="course_logistics">
+        <p>Prerequisite:    Some experience with programming in an imperative language such as Python, Java or C.</p>
+        <p>Exclusion:        This course may not be taken after - or concurrently with - any C- or D-level CSC course.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div id="prompt">
+        <p>To view the rest of the website, please <strong>log in</strong> or <strong>register</strong>.</p>
+        <p>You can use the links in the navigation bar, or use the following links:</p>
+        <a href="{{ url_for('login') }}">Login</a> <a href="{{ url_for('register') }}">Register</a>
+    </div>
+
+    <hr class="divider">
+
+    <h3 class= "headings">Contact details:</h3>
+
+    <div class="contact_info">
+        
+        <div class="upper">
+            <div>Email:</div>
+            <div>Phone:</div>
+            <div>Lecture:</div>
+            <div>OH:</div>
+        </div>
+        
+        <div class = "lower">
+            <div class="cell_item">bretscher@utsc.utoronto.ca</div>
+            <div class="cell_item">(416) 208-4745</div>
+            <div class="cell_item">HW 216 Mondays 9-11AM </div>
+            <div class="cell_item">IC493 Wednessdays 11-12AM</div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="footer">      
+        <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">Faculty of Computer Science at UofT</a></div>
+        <div><img src="../static/pics/UofT.png" class="footer_pic" alt="UofT is no more"></div>
+        <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">image source</a></div>
+        <div><p class="signature">Site designed by Raymond Moy</p></div>
+    </div>
+
+</body>
+
+</html>

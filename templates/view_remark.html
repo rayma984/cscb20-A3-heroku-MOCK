@@ -1,0 +1,22 @@
+{% extends "new_template.html" %}
+{% block content %}
+    
+    <p id="intro">Welcome to the view remark page!</p>
+    <p id="intro">Below are all the remark requests submitted by your students</p>
+
+    <table class="remark_table">
+        <tr>
+          <th>Assessment</th>
+          <th>Student</th>
+          <th>Reasoning</th>
+        </tr>
+        {% for request in remarks %}
+        <tr>
+          <td> {{ request.assessment }} </td>
+          <td> {{ request.student }} </td>
+          <td> {{ request.blurb }} </td>
+        </tr>
+        {% endfor %}  
+    </table>
+
+{% endblock %}

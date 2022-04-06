@@ -1,0 +1,262 @@
+
+title {
+	color: green;
+}
+
+#welcome {
+	background-image: url("../pics/hi.jpg");
+	margin:auto;
+	border-style: solid;
+	color: black;
+	padding: 7px;
+	max-height:min-content;
+}
+
+#welcome_text{
+	background-color: saddlebrown;
+	color:lightgoldenrodyellow;
+	font-size: 25px;
+	max-width: min-content;
+	max-height:  min-content;
+	border-style: solid;
+	border-radius: 6px;
+	padding: 7px;
+	margin:auto;
+}
+
+.header{
+	order: 1;
+	text-align: center;
+	font-family:Courier New;
+	font-size:  190%;
+	border-style: solid;
+	border-color: black;
+	color: salmon;
+	background-image: url("../pics/n.gif");
+	max-height: 120px;
+	width: 100%;
+	flex-wrap: wrap;
+	padding-bottom: 10px;
+}
+#sticky_top{ /*the flexbox containing the header and navbar*/
+	display:flex;
+	position: sticky;
+	top: 0;
+	align-items: center;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.navigation_bar{
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	order: 2;
+	text-decoration: none;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background: #00ccff;
+	flex-wrap: wrap;
+	list-style: none;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-between;
+	width: 100%;
+	min-height: 50px;
+	font-size: large;
+	padding-top: 5px;
+}
+
+.navigation_bar a {
+	text-decoration: none;
+	padding: 10px;
+	color: white;
+	font-size: 25px;
+}
+
+.navigation_bar a:hover {
+	background: #008ebd;
+}
+
+/*define behaviour for links */
+a:link {
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: underline;
+}
+a:hover{
+	text-decoration: underline;
+	text-shadow: blueviolet;
+	text-decoration-color: black;
+}
+a:active{
+	color:black;
+	text-decoration: underline;
+	text-decoration-color: white;
+}
+
+
+/* THE ABOVE SHOULD BE IN EVERY CSS FILE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+body {
+	color:  salmon;
+	background: rgb(255, 255, 206);
+	font-size: 120%;
+}
+
+#welcome{
+	font-family:papyrus;	
+	font-size: 150%;
+	width: 100%;				
+}
+
+
+.divider {
+	border-top: 5px dashed salmon;
+	margin-top: 20px;
+}
+
+#prompt{
+	text-align: center;
+	
+}
+
+.text_blurb {
+
+	color: sienna;
+	font-family: Rockwell ;
+}
+
+/* Values for the second textbox */
+.upper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	color: sienna;
+	font-size: 120%;
+	border-color: salmon;
+	border-style: solid;
+}
+.lower {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	color: saddlebrown;
+	border-color: salmon;
+	border-style: solid;
+}
+
+.headings {
+	color: sienna;
+	font-size: 150%;
+	font-family: Courier New;
+}
+
+#course_logistics {
+	color:  sienna;
+	font-size: 110%;
+	font-family: Rockwell;
+}
+
+#anon_feedback{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 20px;
+}
+
+textarea{
+	font-size: 15px;
+	margin: 5px;
+}
+
+button{
+	background-color: antiquewhite;
+	padding: 10px;
+	margin: 10px;
+	font-size: 16px;
+	border-radius: 15px;
+	border-color: greenyellow;
+}
+button:hover{
+	background-color: white;
+	transition-duration: .3s;
+	box-shadow: 0 5px 10px rgb(173, 168, 168);
+}
+
+
+/*FOOTER SHOULD BE PRESENT IN EVERY CSS*/
+
+/*for when its a phone or tablet view */
+/*PUT MOBILE ADJUSTMENTS HERE!*/ 
+@media all and (max-width: 720px){
+	body{
+		background: rgb(102, 141, 214);
+		color:aquamarine
+	}
+
+/*below is the header section*/
+	.headings {
+		color: whitesmoke;
+		font-size: 140%;
+		font-family: Courier New;
+	}
+	.upper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		color: whitesmoke;
+		font-size: 100%;
+		border-color: salmon;
+		border-style: solid;
+	}
+	.lower {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		color: whitesmoke;
+		border-color: salmon;
+		border-style: solid;
+		font-size: small;
+	}
+	p{
+		color:aliceblue;
+		font-size: smaller;
+	}
+	.cell_item{
+		border-style: groove;
+	}
+
+	.navigation_bar{
+		padding: 15px;
+	}
+
+	.navigation_bar a {
+		font-size: 20px;
+		font-family: sans-serif;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.header {
+		font-size: 160%;
+	}
+}
+
+.footer {
+	margin-top: 100px;
+	color: darkmagenta;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 10px, 10px;
+	align-items: center;
+}

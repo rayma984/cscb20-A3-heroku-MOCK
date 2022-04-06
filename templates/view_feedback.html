@@ -1,0 +1,24 @@
+{% extends "new_template.html" %}
+{% block content %}
+    
+    <p id="intro">Welcome to the view feedback page!</p>
+    <p id="intro">Below are all the feedback you have received from your students.</p>
+
+    <table class="feedback_table">
+        <tr>
+          <th>What do you like about the instructor teaching? </th>
+          <th>What do you recommend the instructor to do to improve their teaching?</th>
+          <th>What do you like about the labs?</th>
+          <th>What do you recommend the lab instructors to do to improve their lab teaching?</th>
+        </tr>
+        {% for feedback in query_feedbacks %}
+        <tr>
+          <td> {{ feedback.q1 }} </td>
+          <td> {{ feedback.q2 }} </td>
+          <td> {{ feedback.q3 }} </td>
+          <td> {{ feedback.q4 }} </td>
+        </tr>
+        {% endfor %}  
+    </table>
+
+{% endblock %}

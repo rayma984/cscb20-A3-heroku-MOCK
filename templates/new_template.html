@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CSCB20 {{ pagename }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/new_template.css') }}">
+    </head>
+
+    <body>
+        <div id="sticky_top">
+            <div class="header">
+                
+                <h2 >CSCB20 {{ pagename }}</h2>       
+            </div>
+
+            <!--Intuition: a navigation bar is an unordered list of links, figure out horizontal stuff in CSS-->
+            <!--https://piazza.com/class/kxj5alixpjg4ft?cid=289 for details on if user in session stuff-->
+            <div class="navigation_bar">          
+                <strong>
+                    {% if session.name %}
+                        {% if session.type == 'Student' %} <!--for when user is logged in as student-->
+                        <!--these are the student pages-->
+                        <a href="{{ url_for('stu_home') }}">Home Page</a> 
+                        <a href="{{ url_for('submit_feedback') }}">Submit Feedback</a>
+
+                        {% else %}  <!--for when user is logged in as instructor: session.type == 'Instructor'-->
+                        <a href="{{ url_for('instr_home') }}">Home Page</a> 
+                        <a href="{{ url_for('view_feedback') }}">View Feedback</a>
+                        <a href="{{ url_for('view_remark') }}">View Remark Requests</a>
+                        <a href="{{ url_for('enter_marks') }}">Enter Marks</a>             
+                        {% endif %}
+
+                        <!--these are the A2 pages (common to both users)-->
+                        <a href="{{ url_for('index') }}">Course Home</a>
+                        <a href="{{ url_for('course_team') }}">Course Team</a>
+                        <a href="{{ url_for('lectures') }}">Lectures</a>
+                        <a href="../static/docs/syllabus.pdf">Syllabus</a>
+                        <a href="{{ url_for('weekly_schedule') }}">Weekly Schedule</a>
+                        <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments">Markus</a>
+                        <a href="https://piazza.com/class/kxj5alixpjg4ft">Piazza</a>
+                        <a href="{{ url_for('assignments') }}">Assignments</a>
+                        <a href="{{ url_for('labs') }}">Labs</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <!--logout page-->
+                        <a href="{{ url_for('login') }}">Login</a>
+                        <a href="{{ url_for('register') }}">Register</a>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    {% endif %}
+                    
+                </strong>
+            </div>
+    
+        </div>
+    
+        <hr class = "divider">
+        
+        {% block content %}
+        {% endblock %}
+        
+        <hr class="divider">
+        
+
+        <div class="footer">      
+            <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">Faculty of Computer Science at UofT</a></div>
+            <div><img src="../static/pics/UofT.png" class="footer_pic" alt="UofT is no more"></div>
+            <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">image source</a></div>
+            <div><p class="signature">Site designed by Raymond Moy, Amodh Durve</p></div>
+        </div>
+
+    </body>
+</html>

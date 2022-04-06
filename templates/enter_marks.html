@@ -1,0 +1,23 @@
+{% extends "new_template.html" %}
+{% block content %}
+    
+    <p id="intro">Welcome to the enter marks page!</p>
+    <p id="intro">Here, you will enter marks for students.</p>
+    <p id="intro">To issue a remark, simply specify the student and the assessment to be remarked</p>
+
+    <br>
+    <!--take into consideration for dupliate student+assessment for remark-->
+    <form action="http://127.0.0.1:5000/enter_marks" method = "post">
+        <label for="student">Student Name</label>
+        <input type="text" id="student" name="student">
+
+        <label for="assessment">Assessment</label>
+        <input type="text" id="assessment" name="assessment">
+
+        <label for="grade"> Grade </label>
+        <input type="number" id="grade" name="grade" min="0.0" max="100.0">
+        
+        <button type="register">Register</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../static/css/weekly_schedule.css"> 
+    <title>CSCB20 Weekly Schedule</title> 
+</head>
+
+<body>
+    
+    <div id="sticky_top">
+        <div class="header">
+            <h2>B20 Weekly Schedule</h2>       
+        </div>
+
+            <!--Intuition: a navigation bar is an unordered list of links, figure out horizontal stuff in CSS-->
+            <div class="navigation_bar">          
+                <strong>
+                    {% if session.name %}
+                        {% if session.type == 'Student' %} <!--for when user is logged in as student-->
+                        <!--these are the student pages-->
+                        <a href="{{ url_for('stu_home') }}">Home Page</a> 
+                        <a href="{{ url_for('submit_feedback') }}">Submit Feedback</a>
+
+                        {% else %}  <!--for when user is logged in as instructor: session.type == 'Instructor'-->
+                        <a href="{{ url_for('instr_home') }}">Home Page</a> 
+                        <a href="{{ url_for('view_feedback') }}">View Feedback</a>
+                        <a href="{{ url_for('view_remark') }}">View Remark Requests</a>
+                        <a href="{{ url_for('enter_marks') }}">Enter Marks</a>             
+                        {% endif %}
+
+                        <!--these are the A2 pages (common to both users)-->
+                        <a href="{{ url_for('index') }}">Course Home</a>
+                        <a href="{{ url_for('course_team') }}">Course Team</a>
+                        <a href="{{ url_for('lectures') }}">Lectures</a>
+                        <a href="../static/docs/syllabus.pdf">Syllabus</a>
+                        <a href="{{ url_for('weekly_schedule') }}">Weekly Schedule</a>
+                        <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments">Markus</a>
+                        <a href="https://piazza.com/class/kxj5alixpjg4ft">Piazza</a>
+                        <a href="{{ url_for('assignments') }}">Assignments</a>
+                        <a href="{{ url_for('labs') }}">Labs</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <!--logout page-->
+                        <a href="{{ url_for('login') }}">Login</a>
+                        <a href="{{ url_for('register') }}">Register</a>
+                        <a href="{{ url_for('index') }}">Home</a>
+                    {% endif %}
+                </strong>
+            </div>
+
+        </div>
+    </div>
+
+    <hr class = "divider">
+
+    <div id="welcome">
+        <div id="welcome_text">
+            <h2>
+                Lectures are in HW 216 from Mondays 9-11AM
+            </h2>
+        </div>
+    </div>
+
+    <!--this page has 2 table type things-->
+     <hr class = "divider">
+
+
+<div class = "box">
+    <h3>Tutorial Times and Locations</h3>
+    <h3>Office Hours and Locations</h3>
+    <div class="table">
+        <div class="row">
+            <div class="cell1"><p>Adam Barns</p></div>
+            <div class="cell"><p>SW 319</p></div>
+            <div class="cell"><p>Mondays 1-2PM</p></div>
+        </div>
+        <div class="row">
+            <div class="cell"><p>Chin Do</p></div>
+            <div class="cell"><p>SW 309</p></div>
+            <div class="cell"><p>Tuesdays 1-3PM</p></div>
+        </div>
+        <div class="row">
+            <div class="cell"><p>Eliotte Feng</p></div>
+            <div class="cell"><p>AA 214</p></div>
+            <div class="cell"><p>Wednessdays & Fridays 4-5PM</p></div>
+        </div>
+        <div class="row">
+            <div class="cell"><p>Eliotte Feng</p></div>
+            <div class="cell"><p>HL 201</p></div>
+            <div class="cell"><p>Thursdays 4-5PM</p></div>
+        </div>
+        <div class="row">
+            <div class="cell"><p>Grett Han</p></div>
+            <div class="cell"><p>BV 491</p></div>
+            <div class="cell"><p>Fridays 4-6PM</p></div>
+        </div>
+    </div>
+
+
+    <div class="table1">
+        <div class="row1">
+            <div class="cell1"><p>Anna Bretscher</p></div>
+            <div class="cell1"><p>IC 420</p></div>
+            <div class="cell1"><p>Wednessdays 12-2PM</p></div>
+        </div>
+        <div class="row1">
+            <div class="cell1"><p>Adam Barns</p></div>
+            <div class="cell1"><p>SW 319</p></div>
+            <div class="cell1"><p>Mondays 2-3PM</p></div>
+        </div>
+        <div class="row1">
+            <div class="cell1"><p>Chin Do</p></div>
+            <div class="cell1"><p>SW 309</p></div>
+            <div class="cell1"><p>Tuesdays 5-5:30PM</p></div>
+        </div>
+        <div class="row1">
+            <div class="cell1"><p>Eliotte Feng</p></div>
+            <div class="cell1"><p>IC 302</p></div>
+            <div class="cell1"><p>Thursdays 1-4PM</p></div>
+        </div>
+        <div class="row1">
+            <div class="cell1"><p>Eliotte Feng</p></div>
+            <div class="cell1"><p>IC 413</p></div>
+            <div class="cell1"><p>Mondays 1-2PM</p></div>
+        </div>
+        <div class="row1">
+            <div class="cell1"><p>Grett Han</p></div>
+            <div class="cell1"><p>BV 491</p></div>
+            <div class="cell1"><p>Mondays 2-3PM</p></div>
+        </div>
+    </div>
+</div>
+
+     <hr class = "divider">
+
+    <div class="footer">
+        <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">Faculty of Computer Science at UofT</a></div>
+        <div><img src="../static/pics/UofT.png" class="footer_pic" alt="UofT is no more"></div>
+        <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">image source</a></div>
+        <div><p class="signature">Site designed by Raymond Moy</p></div>
+        <a href="https://www.utsc.utoronto.ca/~bretscher/b20/lectures.html">slides source</a>
+    </div>
+</body>
+</html>

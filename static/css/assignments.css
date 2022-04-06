@@ -1,0 +1,157 @@
+.header{
+	order: 1;
+	text-align: center;
+	font-family:Courier New;
+	font-size:  190%;
+	border-style: solid;
+	border-color: black;
+	color: salmon;
+	background-image: url("../pics/n.gif");
+	max-height: 120px;
+	width: 100%;
+	flex-wrap: wrap;
+	padding-bottom: 10px;
+}
+#sticky_top{ /*the flexbox containing the header and navbar*/
+	display:flex;
+	position: sticky;
+	top: 0;
+	align-items: center;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.navigation_bar{
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	order: 2;
+	text-decoration: none;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background: #00ccff;
+	flex-wrap: wrap;
+	list-style: none;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-between;
+	width: 100%;
+	min-height: 50px;
+	font-size: large;
+	padding-top: 5px;
+}
+
+.navigation_bar a {
+	text-decoration: none;
+	padding: 10px;
+	color: white;
+	font-size: 25px;
+}
+
+.navigation_bar a:hover {
+	background: #008ebd;
+}
+
+/*define behaviour for links */
+a:link {
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: underline;
+}
+a:hover{
+	text-decoration: underline;
+	text-shadow: blueviolet;
+	text-decoration-color: black;
+}
+a:active{
+	color:black;
+	text-decoration: underline;
+	text-decoration-color: white;
+}
+
+
+#assignment_blurb {
+	font-size: 120%;
+	font-family: Courier New;
+	font-weight: bold;
+	color: rgb(57, 11, 207);
+	text-align: center;
+}
+
+
+
+.divider {
+	border-top: 5px dashed salmon;
+	margin-top: 20px;
+}
+
+
+.assignment_stats {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.assignment_block {
+	font-family: Courier New;
+	font-size: 120%;
+	color: saddlebrown;
+	font-weight: bold;
+}
+
+h3{
+	font-weight:bolder;
+	color:black;
+}
+
+
+/*define behaviour for links */
+a:link {
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: underline;
+}
+a:hover{
+	text-decoration: underline;
+	text-shadow: blueviolet;
+	text-decoration-color: black;
+}
+a:active{
+	color:aqua;
+	text-decoration: underline;
+	text-decoration-color: greenyellow;
+}
+
+
+h3{
+	font-weight: bold;
+}
+
+body {
+	background-color: lightgoldenrodyellow;
+
+}
+
+@media all and (max-width:720px){
+	#assignment_blurb {
+		padding-top: 50px;
+		font-size: 110%;
+		font-family: Courier New;
+		font-weight: bold;
+		color: rgb(57, 11, 207);
+		text-align: center;
+	}
+}
+
+.footer {
+	margin-top: 100px;
+	color: darkmagenta;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 10px, 10px;
+	align-items: center;
+}

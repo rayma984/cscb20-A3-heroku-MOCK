@@ -1,0 +1,24 @@
+{% extends "new_template.html" %}
+{% block content %}
+    
+    <p id="intro">Welcome to the instructor view marks page!</p>
+    <p id="intro">Here, you will see all the marks for your assessments</p>
+    <!--couldnt figure out how to show teacher name too lol-->
+    <table class="mark_table">
+        <tr>
+            <th>Student</th>
+            <th>Instructor</th>
+            <th>Assessment</th>
+            <th>Grade</th>
+        </tr>
+        {% for mark in marks %}
+            <tr>
+                <td> {{ mark.student }} </td>
+                <td> {{ mark.instructor }} </td>
+                <td> {{ mark.assessment }} </td>
+                <td> {{ mark.grade }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

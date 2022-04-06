@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../static/css/assignments.css">  
+    <title>CSCB20 ASSIGNMENTS</title> <!---name tentative-->
+</head>
+
+<body>
+    <div id="sticky_top">
+        <div class="header">
+            <h2>CSCB20 ASSIGNMENTS</h2>       
+        </div>
+
+            <!--Intuition: a navigation bar is an unordered list of links, figure out horizontal stuff in CSS-->
+            <div class="navigation_bar">           
+                <strong>
+                    {% if session.name %} <!--for when user is logged in-->
+                    <!--will have to put another <IF> for user TYPE-->
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{ url_for('register') }}">Register</a>
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('course_team') }}">Course Team</a>
+                    <a href="{{ url_for('lectures') }}">Lectures</a>
+                    <a href="../static/docs/syllabus.pdf">Syllabus</a>
+                    <a href="{{ url_for('weekly_schedule') }}">Weekly Schedule</a>
+                    <a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments">Markus</a>
+                    <a href="https://piazza.com/class/kxj5alixpjg4ft">Piazza</a>
+                    <a href="{{ url_for('assignments') }}">Assignments</a>
+                    <a href="{{ url_for('labs') }}">Labs</a>
+                    {% else %}
+                    <a href="{{ url_for('index') }}">Home</a> 
+                    <a href="{{ url_for('register') }}">Register</a>                                     
+                    <a href="{{ url_for('login') }}">Login</a>                    
+                    {% endif %}
+                </strong>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--middle blurb-->
+    <p id="assignment_blurb">
+        Assignment handouts and information can be found on this page. Every assignment is due at 11:59PM and extensions will not be given. Utilize Piazza for asking questions and accessing updates about the course and assignments. Use your time wisely and submit assignments on time. Submissions are done through the Markus for this course. Use the link on the navigation bar or the links below to access them. Good luck!
+    </p>
+
+    <!--these will be our assignment blocks-->
+    <div class="assignment_block">
+        <h3>Assignment 1</h3>
+        <hr class = "divider">
+        <p>This assignment tests your knowledge of RA and SQL.</p>
+        <p>It is worth 15% of your overall mark and is due on March 21,2022 at 11:59PM</p>
+
+        <div class="assignment_stats">
+            <div><a href="../static/docs/assignments.pdf">Handout</a></div>
+            <div><a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments/1">Markus</a></div>
+            <div><a href="../static/docs/ass_soln.pdf">Solutions</a></div>
+        </div>
+    </div>
+
+    <div class="assignment_block">
+        <h3>Assignment 2</h3>
+        <hr class = "divider">
+        <p>This assignment tests your knowledge of HTML, CSS, and PHP.</p>
+        <p>It is worth 15% of your overall mark and is due on March 29,2022 at 11:59PM</p>
+
+        <div class="assignment_stats">
+            <div><a href="../static/docs/assignments.pdf">Handout</a></div>
+            <div><a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments/1">Markus</a></div>
+        </div>
+    </div>
+
+    <div class="assignment_block">
+        <h3>Assignment 3</h3>
+        <hr class = "divider">
+        <p>This assignment tests your knowledge of web applications and databases.</p>
+        <p>It is worth 15% of your overall mark and is due on April 20,2022 at 11:59PM</p>
+
+        <div class="assignment_stats">
+            <div><a href="../static/docs/assignments.pdf">Handout</a></div>
+            <div><a href="https://markus.utsc.utoronto.ca/cscb20w22/assignments/1">Markus</a></div>
+        </div>
+    </div>
+
+
+    <div class="footer">      
+        <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">Faculty of Computer Science at UofT</a></div>
+        <div><img src="../static/pics/UofT.png" class="footer_pic" alt="UofT is no more"></div>
+        <div><a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science">image source</a></div>
+        <div><p class="signature">Site designed by Raymond Moy</p></div>
+    </div>
+
+</body>
+</html>
