@@ -1,11 +1,15 @@
 {% extends "new_template.html" %}
 {% block content %}
-    
-    <p id="intro">Welcome to the instructor home page!</p>
 
+    {% if session.name and session.type == 'Instructor' %}
+        <!--receive the flash message-->
+        <p id="intro">Welcome to the instructor home page, {{session.name}}!</p>
 
-    <p>Click <a href="{{ url_for('instr_marks') }}">here</a> to view the marks of ALL students</p>
-    <p>This link will only appear on this home page because it is special!</p>
-
+        <p class="blurb">Click <a href="{{ url_for('instr_marks') }}">here</a> to view the marks of ALL students</p>
+        <p class="blurb">This link will only appear on this home page because it is special!</p>
+    {% else %}
+        <p class="forbidden">You are not authorized to view this page!</p>
+        <p class="forbidden">If you believe this is a mistake, please log in again.</p>
+    {% endif %}
 
 {% endblock %}

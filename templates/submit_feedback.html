@@ -1,5 +1,14 @@
 {% extends "new_template.html" %}
-{% block content %}
+    {% block content %}
+    {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class= "flashy">{{ category }} - {{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+{% if session.name and session.type == 'Student' %}
     <link rel="stylesheet" href = "{{url_for('static', filename='css/submit_feedback.css')}}">
     <br>
 
@@ -7,7 +16,7 @@
   
     <br>
 
-    <form action="http://127.0.0.1:5000/submit_feedback" id="anon_feedback" method = "post" >
+    <form action="/submit_feedback" id="anon_feedback" method = "post" >
         <label for="Q1">What do you like about the instructor teaching?</label>
         <textarea name="Q1" form="anon_feedback" rows="5" cols="40"></textarea>
 
@@ -30,5 +39,9 @@
         <!--add some responsiveness once the thing has been submitted-->
         <button type="submit">Submit</button>
     </form>
+{% else %}
+    <p class="forbidden">You are not authorized to view this page!</p>
+    <p class="forbidden">If you believe this is a mistake, please log in again.</p>
+{% endif %}
 
 {% endblock %}

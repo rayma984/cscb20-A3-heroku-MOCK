@@ -1,23 +1,37 @@
 {% extends "new_template.html" %}
 {% block content %}
-    
-    <p id="intro">Welcome to the enter marks page!</p>
-    <p id="intro">Here, you will enter marks for students.</p>
-    <p id="intro">To issue a remark, simply specify the student and the assessment to be remarked</p>
+    {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class= "flashy">{{ category }} - {{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
-    <br>
-    <!--take into consideration for dupliate student+assessment for remark-->
-    <form action="{{ url_for('enter_marks') }}" method = "post">
-        <label for="student">Student Name</label>
-        <input type="text" id="student" name="student">
+    {% if session.name and session.type == 'Instructor' %}
+        <link rel = "stylesheet" href="{{url_for('static',filename='css/enter_marks.css')}}">
+        <p id="intro">Welcome to the enter marks page!</p>
+        <p id="intro">Here, you will enter marks for students.</p>
+        <p id="intro">To issue a remark, simply specify the student and the assessment to be remarked</p>
 
-        <label for="assessment">Assessment</label>
-        <input type="text" id="assessment" name="assessment">
+        <br>
+        <!--take into consideration for dupliate student+assessment for remark-->
+        <form action="/enter_marks" method = "post">
+            <label for="student">Student Name</label>
+            <input type="text" id="student" name="student">
 
-        <label for="grade"> Grade </label>
-        <input type="number" id="grade" name="grade" min="0.0" max="100.0">
-        
-        <button type="register">Register</button>
-    </form>
+            <label for="assessment">Assessment</label>
+            <input type="text" id="assessment" name="assessment">
+
+            <label for="grade"> Grade </label>
+            <input type="number" id="grade" name="grade" min="0.0" max="100.0">
+            
+            <button type="register">Register</button>
+        </form>
+    {% else %}
+        <p class="forbidden">You are not authorized to view this page!</p>
+        <p class="forbidden">If you believe this is a mistake, please log in again.</p>
+    {% endif %}
+
 
 {% endblock %}

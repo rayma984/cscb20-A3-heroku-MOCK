@@ -1,6 +1,7 @@
 {% extends "new_template.html" %}
 {% block content %}
     
+{% if session.name and session.type == 'Student' %}
     <p id="intro">Welcome to the student view marks page!</p>
     <p id="intro">Here, you will see all the marks for your assessments</p>
     <!--couldnt figure out how to show teacher name too lol-->
@@ -16,9 +17,10 @@
                 <td> {{ mark.grade }} </td>
             <!--Now, create remark-->
                 <td>
-                    <form action="http://127.0.0.1:5000/view_marks" id="submit_remark" method = "post">
+                    <form action="/view_marks" id="submit_remark" method = "post">
                         <input type="text" value={{ mark.accessment }} class="py_only" name="assessment" readonly>
                         <label for={{ mark.accessment }}>Why do you need a remark?</label>
+
                         <textarea name={{ mark.accessment }} form="submit_remark" rows="3" cols="30"></textarea>
                         <button type="submit">Submit</button>
                     </form>
@@ -28,4 +30,9 @@
     </table>
 
     <p>Please note that you may only file ONE remark request per assessment!</p>
-{% endblock %}
+{% else %}
+    <p class="forbidden">You are not authorized to view this page!</p>
+    <p class="forbidden">If you believe this is a mistake, please log in again.</p>
+{% endif %}
+
+    {% endblock %}

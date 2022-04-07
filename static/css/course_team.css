@@ -105,6 +105,7 @@ a:active{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	align-content: center;
 }
 
 #team .profile .position {
@@ -123,7 +124,6 @@ a:active{
 	align-items: center;
 	margin-left: 8px;
 	justify-content: space-evenly;
-
 }
 
 #team .profile .name {
@@ -135,7 +135,6 @@ a:active{
 	text-align: center;
 	font-family: Courier New;
 	font-weight: bold;
-
 }
 
 #team .profile .email {

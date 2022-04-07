@@ -1,0 +1,28 @@
+table  ,th{
+	border: 1px groove;
+	align-content: center;
+	padding: 12px;
+	align-self: center;
+	color: lightgoldenrodyellow;
+	column-rule-style: groove;
+	text-align: left;
+	background-color: saddlebrown;
+	border-color: lightgoldenrodyellow;
+	border-width: 2px;
+	margin-left: 150px;
+}
+td{
+	align-content: space-between;
+	padding: 12px;
+	margin-left: 150px;
+}
+
+tr:nth-child(even){
+	background-color: lightgoldenrodyellow;
+	color: saddlebrown;
+}
+
+#tabletennis{
+	align-self: center;
+	margin-left: 600px;
+}

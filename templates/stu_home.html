@@ -1,9 +1,15 @@
 {% extends "new_template.html" %}
 {% block content %}
-    
-    <p id="intro">Welcome to the student home page!</p>
-    <!--add somethings to greet the student-->
 
-    <p>Click <a href="{{ url_for('view_marks') }}">here</a> to view all your marks</p>
-    <p>This link will only appear on this home page because it is special!</p>
+    {% if session.name and session.type == 'Student' %}
+
+        <!--receive the flash message-->
+        <p id="intro">Welcome to the student home page, {{session.name}}!</p>
+
+        <p class="blurb">Click <a href="{{ url_for('view_marks') }}">here</a> to view all your marks</p>
+        <p class="blurb">This link will only appear on this home page because it is special!</p>
+    {% else %}
+        <p class="forbidden">You are not authorized to view this page!</p>
+        <p class="forbidden">If you believe this is a mistake, please log in again.</p>
+    {% endif %}
 {% endblock %}

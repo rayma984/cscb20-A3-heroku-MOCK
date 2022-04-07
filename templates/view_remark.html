@@ -1,9 +1,12 @@
 {% extends "new_template.html" %}
 {% block content %}
-    
+
+{% if session.name and session.type == 'Instructor' %}
+
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='css/view_remark.css' )}}">
     <p id="intro">Welcome to the view remark page!</p>
     <p id="intro">Below are all the remark requests submitted by your students</p>
-
+    <div id= "tabletennis">
     <table class="remark_table">
         <tr>
           <th>Assessment</th>
@@ -18,5 +21,11 @@
         </tr>
         {% endfor %}  
     </table>
+  </div>
+
+{% else %}
+  <p class="forbidden">You are not authorized to view this page!</p>
+  <p class="forbidden">If you believe this is a mistake, please log in again.</p>
+{% endif %}
 
 {% endblock %}
