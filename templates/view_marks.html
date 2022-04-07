@@ -2,26 +2,27 @@
 {% block content %}
     
 {% if session.name and session.type == 'Student' %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/view_marks.css')}}">
     <p id="intro">Welcome to the student view marks page!</p>
     <p id="intro">Here, you will see all the marks for your assessments</p>
     <!--couldnt figure out how to show teacher name too lol-->
     <table class="mark_table">
         <tr>
-            <th>Assessment</th>
-            <th>Grade</th>
+            <th>Assessment&nbsp</th>
+            <th>&nbspGrade</th>
             <th>Remark Request</th>
         </tr>
         {% for mark in query_marks %}
             <tr>
-                <td> {{ mark.accessment }} </td>
+                <td> {{ mark.assessment }} </td>
                 <td> {{ mark.grade }} </td>
             <!--Now, create remark-->
                 <td>
-                    <form action="/view_marks" id="submit_remark" method = "post">
-                        <input type="text" value={{ mark.accessment }} class="py_only" name="assessment" readonly>
-                        <label for={{ mark.accessment }}>Why do you need a remark?</label>
+                    <form action="http://127.0.0.1:5000/view_marks" id="submit_remark" method = "post">
+                        <input type="text" value={{ mark.assessment }} class="py_only" name="assessment" readonly>
+                        <label for={{ mark.assessment }}>Why do you need a remark?</label>
 
-                        <textarea name={{ mark.accessment }} form="submit_remark" rows="3" cols="30"></textarea>
+                        <input type="text" name={{ mark.assessment }} class="remark_blurb">
                         <button type="submit">Submit</button>
                     </form>
                 </td>

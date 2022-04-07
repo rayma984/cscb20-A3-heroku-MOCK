@@ -292,7 +292,10 @@ def register():
     else: #POST aka checking db to see if credentials are correct
         username = request.form['Username']
         email = request.form['Email']
-
+        if (len(request.form['Password']) == 0):
+            flash("Password cannot be empty!", "error") #ASSUMES WE CAN REBOOT DB (if not include email here)
+            return redirect(url_for('register'))
+    
         hashed_password = bcrypt.generate_password_hash(request.form['Password']).decode('utf-8')
         types= request.form['Acc_Type'] 
         reg_details =(
@@ -302,6 +305,7 @@ def register():
             types
         )
 
+        
         account = Account.query.filter_by(username = username).first()
         
         #if account with this name appeared in db --> username is already taken
