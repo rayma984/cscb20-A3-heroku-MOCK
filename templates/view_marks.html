@@ -24,7 +24,7 @@
                 <td> {{ mark.grade }} </td>
             <!--Now, create remark-->
                 <td>
-                    <form action="http://127.0.0.1:5000/view_marks" id="submit_remark" method = "post">
+                    <form action="/view_marks" id="submit_remark" method = "post">
                         <input type="text" value={{ mark.assessment }} class="py_only" name="assessment" readonly>
                         <label for={{ mark.assessment }}>Why do you need a remark?</label>
 
